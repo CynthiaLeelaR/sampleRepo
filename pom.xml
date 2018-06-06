@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+
+  <groupId>EMI_Services</groupId>
+  <artifactId>EMI_Services</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>EMI-Service</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipTests>true</skipTests>
+        <env>{env}</env>
+        <domain>{domain}</domain>
+        <suiteFile>{suiteFile}</suiteFile>
+    </properties>
+ <repositories>
+		<repository>
+			<id>walmart_shared</id>
+			<name>Walmart Shared</name>
+			<url>http://repo.wal-mart.com/content/groups/shared/</url>
+		</repository>
+</repositories> 
+<pluginRepositories>
+        <pluginRepository>
+            <id>walmart_shared</id>
+            <name>walmart_shared</name>
+            <url>http://repo.wal-mart.com/content/groups/shared/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+  </pluginRepositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12</version>
+				<configuration>
+					
+					<properties>
+						<property>
+							<name>usedefaultlisteners</name>
+							<value>true</value>
+						</property>
+						<property>
+							<name>listener</name>
+							<value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value>
+						</property>
+						<property>
+							<name>outputDir</name>
+							<value>target/surefire-reports/html</value>
+						</property>
+						<property>
+							<name>suitethreadpoolsize</name>
+							<value>1</value>
+						</property>
+					</properties>
+					<skipTests>${skipTests}</skipTests>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteFile}</suiteXmlFile>
+                    </suiteXmlFiles>
+					<systemPropertyVariables>
+						<config.properties>${env}</config.properties>
+						<config.properties>${domain}</config.properties>
+						<config.properties>${suiteFile}</config.properties>
+						<webdriver.chrome.driver>${chromeDriverLocation}</webdriver.chrome.driver>
+						<org.uncommons.reportng.title>EMI ServicesAutomation Reports</org.uncommons.reportng.title>
+						<log4j.configuration>log4j.properties</log4j.configuration>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<dependencies>
+	    <dependency>
+			<groupId>org.uncommons</groupId>
+			<artifactId>reportng</artifactId>
+			<version>1.1.4</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.testng</groupId>
+					<artifactId>testng</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+        	<groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+		<!--  
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.6.2</version>
+		</dependency>
+		-->
+		<!-- https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path-assert -->
+		<!--
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path-assert</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+		</dependency>
+		 -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.17</version>
+		</dependency>
+		 
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.13</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>apache-log4j-extras</artifactId>
+			<version>1.1</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.camel</groupId>
+		  <artifactId>camel-base64</artifactId>
+		  <version>2.16.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>2.45.0</version>
+		</dependency>
+	
+       <!-- 
+		<dependency>
+			<groupId>apache.poi</groupId>
+			<artifactId>poi-examples</artifactId>
+			<version>3.8-20120326</version>
+		</dependency>
+		 -->
+		<dependency>
+  			<groupId>org.apache.poi</groupId>
+  			<artifactId>poi</artifactId>
+ 	 		<version>3.13</version>
+		</dependency>
+		 
+		<dependency>
+  			<groupId>org.apache.poi</groupId>
+  			<artifactId>poi-ooxml</artifactId>
+ 	 		<version>3.13</version>
+		</dependency>
+			
+       	<dependency>
+			<groupId>org.ow2.util.bundles</groupId>
+			<artifactId>cassandra-jdbc-1.2.5</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+			
+		<dependency>
+		  <groupId>org.apache.cassandra</groupId>
+		  <artifactId>cassandra-all</artifactId>
+		  <version>3.10</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.datastax.cassandra</groupId>
+		  <artifactId>cassandra-driver-mapping</artifactId>
+		  <version>3.2.0</version>
+		  <classifier>javadoc</classifier>
+		</dependency>
+		<!-- <dependency>
+		  <groupId>com.datastax.cassandra</groupId>
+		  <artifactId>cassandra-driver-core</artifactId>
+		  <version>3.3.0</version>
+		</dependency> -->
+		<!--  <dependency>
+		  <groupId>com.google.guava</groupId>
+		  <artifactId>guava</artifactId>
+		  <version>23.0</version>
+		  <classifier>sources</classifier>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>ibm.db2</groupId>
+			<artifactId>db2jcc</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>ibm.db2</groupId>
+			<artifactId>db2jcc4</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>ibm.db2</groupId>
+			<artifactId>db2jcc_license_cu</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>ibm.db2</groupId>
+			<artifactId>db2jcc_license_cisuz</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			 <groupId>com.h2database</groupId>
+			 <artifactId>h2</artifactId>
+			 <version>1.4.195</version>
+		</dependency>
+		 <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+  
+  </dependencies>
+</project>

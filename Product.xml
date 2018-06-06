@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Product">
+ <test name="ProductGetByAnyParameter"> 
+    <classes>
+        <class name="com.walmart.tests.Product.ProductGetByAnyParameter" >     
+        </class>  
+    </classes>
+</test>
+
+<test name="ProductGetByGTINCanonical"> 
+    <classes>
+        <class name="com.walmart.tests.Product.ProductGetByGTINCanonical" >     
+        </class>  
+    </classes>
+</test>
+<test name="ProductgetByGTINDTO"> 
+    <classes>
+        <class name="com.walmart.tests.Product.ProductgetByGTINDTO" >     
+        </class>  
+    </classes>
+</test>
+<test name="ProductGetByItemnumberCanonical"> 
+    <classes>
+        <class name="com.walmart.tests.Product.ProductGetByItemnumberCanonical" >     
+        </class>  
+    </classes>
+</test>
+<test name="ProductGetByItemnumberDTO"> 
+    <classes>
+        <class name="com.walmart.tests.Product.ProductGetByItemnumberDTO" >     
+        </class>  
+    </classes>
+</test>
+<test name="ProductGetByMultipleConsumableGTIN"> 
+    <classes>
+        <class name="com.walmart.tests.Product.ProductGetByMultipleConsumableGTIN" >     
+        </class>  
+    </classes>
+</test>
+<test name="ProductGetByProductIdCanonical"> 
+    <classes>
+        <class name="com.walmart.tests.Product.ProductGetByProductIdCanonical" >     
+        </class>  
+    </classes>
+</test>
+<test name="ProductGetByProductIdDTO"> 
+    <classes>
+        <class name="com.walmart.tests.Product.ProductGetByProductIdDTO" >     
+        </class>  
+    </classes>
+</test>
+</suite>

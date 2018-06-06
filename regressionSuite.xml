@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Mis Legacy Regression Tests" verbose="1" >
+    <test name="Regression Tests" >
+        <packages>
+           <package name="com.walmart.tests.MasterProduct.*" />
+            <package name="com.walmart.tests.TradeItem.*" />
+            <package name="com.walmart.tests.SupplyItem.*" />
+         <!-- <package name="com.walmart.tests.AttributeDescription.*" />-->
+            <package name="com.walmart.tests.InventoryServices.*" />
+            <package name="com.walmart.tests.LinkedCharges.*" />
+            <package name="com.walmart.tests.StoreItemValidity.*" />
+            <package name="com.walmart.tests.SupplyitemInfo.*" />
+        </packages>
+    </test>
+</suite>
