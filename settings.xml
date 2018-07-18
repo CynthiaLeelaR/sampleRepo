@@ -1,0 +1,71 @@
+<settings>
+  <mirrors>
+    <mirror>
+<!--<localRepository>C:\Cynthia_Repo\Repo\</localRepository> -->
+      <id>internal-repository</id>
+      <name>Walmart internal</name>
+      <url>http://repo.wal-mart.com/content/groups/shared/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+
+  <servers>
+    <server>
+      <id>internal-repository</id>
+      <username>deployment</username>
+      <password>deployment</password>
+    </server>
+	<server>
+		<id>shared</id>
+		<username>deployment</username>
+		<password>deployment</password>
+	</server>
+	<server>
+		<id>Snapshots</id>
+		<username>deployment</username>
+		<password>deployment</password>
+	</server>
+  </servers>
+
+  <profiles>
+    <profile>
+      <id>nexus-profile</id>
+      <repositories>
+        <repository>
+          <id>nexus</id>
+          <name>nexus</name>
+          <url>http://repo.wal-mart.com/content/repositories/walmart</url>
+        </repository>
+        <repository>
+          <id>shared</id>
+          <name>shared</name>
+          <url>http://repo.wal-mart.com/content/repositories/walmart</url>
+        </repository>
+
+        <repository>
+          <id>Snapshots</id>
+          <name>Snapshots</name>
+          <url>http://repo.wal-mart.com/content/repositories/snapshots/</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>shared</id>
+          <name>Shared</name>
+          <url>http://repo.wal-mart.com/content/groups/shared/</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>Snapshots</id>
+          <name>Snapshots</name>
+          <url>http://repo.wal-mart.com/content/repositories/snapshots/</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>nexus-profile</activeProfile>
+  </activeProfiles>
+<localRepository>
+  C:\Cynthia_Repo\Repo\
+  </localRepository>
+</settings>
